@@ -1,0 +1,81 @@
+#include<iostream>
+using namespace std;
+struct liczba
+{
+	int wartosc;
+	liczba *next;
+};
+//dodaj element do stosu
+void dodaj(liczba **root)
+{
+	liczba *nowa = new liczba;
+	cin >> nowa->wartosc;
+	nowa->next = *root;
+	*root = nowa;
+}
+//zdejmij element ze stosu
+void zdejmij(liczba **root)
+{
+	if (*root) //sprawdz czy stos nie jest juz pusty
+	{
+		liczba *temp = *root;
+		*root = (*root)->next;
+		cout << temp->wartosc << endl;
+		delete temp;
+	}
+}
+void podejrzyj(liczba **root)
+{
+	liczba *temp = *root;
+	cout << temp->wartosc << endl;
+}
+void czypusty(liczba **root)
+{
+	//liczba *temp = *root;
+	if (!*root)
+	{
+		cout << "zbior jest pusty" << endl;
+	}
+	else
+	{
+		cout << "zbior nie jest pusty" << endl;
+	}
+}
+void rozmiar(int rozmiarint)
+{
+	//liczba *temp = *root;
+	cout << "rozmiar stosu wynosi: ";
+	cout << rozmiarint<< endl;
+}
+int main()
+{
+	char warunek;
+	int rozmiarint = 0;
+	liczba *root = NULL, *nowa = NULL;
+	while (cin >> warunek)
+	{
+		switch (warunek)
+		{
+		case 'd': //dodaj element do stosu
+			dodaj(&root);
+			rozmiarint++;
+			break;
+		case 'z':
+			zdejmij(&root); //zdejmi element ze stosu
+			if(rozmiarint>0) rozmiarint--;
+			break;
+		case 'p' :
+			podejrzyj(&root); //podejzyj element stosu
+			break;
+		case 'c':
+			czypusty(&root); //Sprawdź, czy stos jest pusty
+			break;
+		case 'r':
+			rozmiar(rozmiarint);
+			break;
+		case 'k': //zakoncz program
+			return 0;
+		}
+	}
+	return 0;
+}
