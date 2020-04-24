@@ -1,0 +1,45 @@
+//////////////////////
+// Program sedziowski
+//////////////////////
+
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+int ocena, suma , najnizsza , najlepszy;
+float srednia;
+int main()
+{
+    cout<<"Program sedziowski "<<"\n";
+    cout<<"Podaj oceny sedziow od 0 do 10: "<<"\n";
+
+    cout<<"Sedzia nr 1 "<<" ocena: ";
+    cin >> ocena;
+
+    if( ocena >10 )
+         cout << "Nic do roboty";
+     else
+     {
+         najnizsza = ocena;
+    for(int i=1; i<10;i++)
+    {
+        cout<<"Sedzia nr "<<i+1<<" ocena: ";
+        cin>> ocena;
+        suma += ocena;
+        if( ocena < najnizsza )
+        najnizsza = ocena;
+        if( ocena > najlepszy )
+        najlepszy = ocena;
+
+    }
+    srednia = suma - (najnizsza+najlepszy);
+     }
+    cout<<"Suma :"<<suma<<"\n";
+    cout<<najnizsza<<"\n";
+    cout<<najlepszy<<"\n";
+    cout<<"Srednia :"<<srednia/10;
+
+    cout << "\nNacisnij enter aby zakonczyc..." << endl;
+    cin.ignore();
+    cin.get();
+     return EXIT_SUCCESS;
+}
