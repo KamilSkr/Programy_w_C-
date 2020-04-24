@@ -1,0 +1,68 @@
+///////////////////////////////////////////
+//Kalkulator dwuargumentowy
+///////////////////////////////////////////
+#include <iostream>
+#include <iomanip>
+#include <conio.h>
+
+using namespace std;
+int dodawanie(int a, int b)
+{
+    return a+b;
+}int odejmowanie(int a, int b)
+{
+    return a-b;
+}int mnozenie(int a, int b)
+{
+    return a*b;
+}int dzielenie(int a, int b)
+{
+    return a/b;
+}
+
+int main()
+{
+    char znak;
+    int a, b ;
+
+    cout << "Maly kalkulator... " << endl;
+    cout << "Podaj pierwsza liczbe: " << flush;
+    cin >> a;
+    cout << "Co chcesz wykonac: \n '+' - Dodawanie \n '-' - Odejmowanie \n '*' - Mnozenie \n '/' - Dzielenie \n" << flush;
+    cin >> znak;
+    cout << "Podaj druga liczbe: " << flush;
+    cin >> b;
+
+
+    switch(znak)
+    {
+    case '+' :
+        cout<<"Wynik dodawanie to : " << dodawanie(a, b)<<"\n";
+        break;
+    case '-' :
+        cout<<"Wynik odejmowania to : " <<odejmowanie(a, b)<<"\n";
+        break;
+    case '*' :
+        cout<<"Wynik mnozenia to : " <<mnozenie(a, b)<<"\n";
+        break;
+    case '/' :
+        if(a == 0 || b == 0){
+            cout << "Nie dziel przez zero \n";
+        }
+        else
+            {
+        cout<<"Wynik dzielenia to : " <<dzielenie(a,b )<<"\n";
+            }
+        break;
+    default:
+        cout << "nie poprawny znak \n";
+    }
+
+    cout <<"Nacisnij enter aby zakonczyc... " << endl;
+    cin.ignore();
+    cin.get();
+
+
+        return 0;
+
+}
