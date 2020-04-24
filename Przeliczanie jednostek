@@ -1,0 +1,74 @@
+/////////////////
+//Przeliczanie jednostek odleglosci
+/////////////////
+/*
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    float metry , wynik, cale,stopy,jardy,mile;
+
+    cout << "Przeliczam odleglosc podana od 0 w metrach na: cale , stopy , jardy ,mile: " << endl;
+    cout << "Podaj odleglosc w metrach: " << flush;
+    cin >> metry;
+
+    cale = metry*39.37007;
+    stopy = metry*3.28083;
+    jardy = metry*1.09361;
+    mile = metry*0.00062;
+
+if(metry<0)
+{
+    cout << "Podales liczbe ujemna , nie oblicze tego przykladu.";
+}
+else
+{
+    cout << "Metry  : " << metry << "\n";
+    cout << "Cale   : " << setprecision(5) << cale << "\n";
+    cout << "Stopy  : " << setprecision(5) <<stopy << "\n";
+    cout << "Jardy  : " << setprecision(5) <<jardy << "\n";
+    cout << "Mile   : " << setprecision(5) <<mile << "\n";
+
+}
+
+    cout << "Nacisnij enter aby zakonczyc..." << endl;
+    cin.ignore();
+    cin.get();
+
+
+        return 0;
+}
+*/
+///////////////////////////////////////////
+// Tabela przelicznikowa odległośc
+///////////////////////////////////////////
+
+/*
+#include <iostream>
+using namespace std;
+int metry=5;
+float wynik[25],cale ,stopy,jardy,mile;
+int main()
+{
+    cout << "Przeliczam odleglosc w metrach na: cale , stopy , jardy ,mile: " << endl;
+
+    cout << "Metry: \t \t" << "Cale: \t \t" << "Stopy: \t \t"<< "Jardy: \t \t" << "Mile_Ladowe: \t \t" << endl;
+    for(int i = 5; i < 25; i++)
+    {
+    wynik[i]=metry;
+    cale = metry*39.37007;
+    stopy = metry*3.28083;
+    jardy = metry*1.09361;
+    mile = metry*0.00062;
+
+
+    cout << wynik[i] <<"\t \t"<< cale<<"\t \t"<< stopy <<"\t \t"<< jardy <<"\t \t"<< mile<<"\t \t" <<endl;
+    metry=metry + 5;
+    }
+
+    return 0;
+}
+*/
