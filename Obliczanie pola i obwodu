@@ -1,0 +1,107 @@
+////////////////////////////////////
+Program obliczajacy obwod i pole wybranych figur
+///////////////////////////////////
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+int wybor;
+double a, b, c, d;
+
+int main()
+{
+    for (;;) {
+    cout << "1. Obliczanie pola trojkata" << endl;
+    cout << "2. Obliczanie pola trapezu" << endl;
+    cout << "3. Obliczanie pola kola" << endl;
+    cout << "4. Obliczanie pola prostokata" << endl;
+    cout << "5. Obliczanie pola kwadratu" << endl;
+
+
+    cout << "Wybor: ";
+    cin >> wybor;
+
+    switch (wybor) {
+        case 1: {
+            cout << "Bok a: ";
+            cin >> a;
+            cout << "Bok h: ";
+            cin >> b;
+            std::system("cls");
+            cout<<"Pole: " << (a * b) / 2 << endl;
+            cout << "Do obliczenie obwodu potrzeba jeszcze boku c: ";
+            cout << "Bok c: ";
+            cin >> c;
+            cout<<"Obwod: " << a+b+c << endl;
+
+        break;
+        }
+        case 2: {
+            cout << "1. Obwod ";
+            cout << "2. Pole ";
+            cin >> wybor;
+            switch(wybor){
+            case 2: {
+            cout << "Bok a: ";
+            cin >> a;
+            cout << "Bok b: ";
+            cin >> b;
+            cout << "Bok h: ";
+            cin >> c;
+            std::system("cls");
+            cout <<"Pole: " << ((a + b) * c) / 2 << endl;
+            break;
+            }
+            case 1: {
+            cout << "Bok a: ";
+            cin >> a;
+            cout << "Bok b: ";
+            cin >> b;
+            cout << "Bok c: ";
+            cin >> c;
+            cout << "Bok h: ";
+            cin >> d;
+            cout <<"Obwod: " << a+b+c+d << endl;
+            break;
+            }
+            }
+            break;
+        }
+        case 3: {
+            cout << "Promien : ";
+            cin >> a;
+            std::system("cls");
+            cout <<"Obwod : " << 2*3.14*a  << endl;
+            cout <<"Pole : " << 3.14*(a*a)  << endl;
+
+            break;
+        }
+        case 4: {
+            cout << "Bok a: ";
+            cin >> a;
+            cout << "Bok b: ";
+            cin >> b;
+            std::system("cls");
+            cout <<"Pole: " << a * b << endl;
+            cout <<"Obwod: : " << 2*a + 2*b << endl;
+
+
+            break;
+        }
+        case 5: {
+            cout << "Bok a: ";
+            cin >> a;
+            std::system("cls");
+            cout <<"Pole: " << a * a << endl;
+            cout <<"Obwod: " << 4*a << endl;
+            break;
+        }
+        default:
+        {
+            cout << "Program zamkniety!"<< endl;
+            exit (EXIT_FAILURE);
+        }
+        }
+    }
+  return 0;
+  }
