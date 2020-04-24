@@ -1,0 +1,48 @@
+///////////////////////////////
+//Roczne przychody
+///////////////////////////////
+
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+
+int kasa , suma, sre , minimalny, maksymalny, miesiac;
+
+int main()
+{
+
+    cout<<"Obliczam sume  , sredni , masksymalny oraz minimalny przychod  : ";
+    cout<<"Podaj ile miesiecy chcesz obliczyc : ";
+    cin>>miesiac;
+    cout<<"\nPodaj przychody osiagniete w kolejnych miesiacach: \n";
+    cout<<"1" <<"\t"<<" :";
+    cin >> kasa;
+
+    if( kasa == '-' )
+         cout << "Nic do roboty";
+     else
+     {
+         minimalny = kasa;
+    for(int i=1; i<miesiac;i++)
+    {
+
+        suma += kasa;
+        if( kasa < minimalny )
+        minimalny = kasa;
+        if( kasa > maksymalny )
+        maksymalny = kasa;
+        cout << i + 1 <<"\t" <<" :" ;
+        cin>> kasa;
+    }
+    sre = suma/12;
+    cout<<"Suma przychodow wynosi: "<<suma << "\n";
+    cout<< "Sredni przychod wynosi: "<< sre << "\n";
+    cout<< "Minimalny przychod wynosi: "<< minimalny << "\n";
+    cout<< "Maksymalny przychod wynosi: "<< maksymalny << "\n";
+     }
+
+    cout << "Nacisnij enter aby zakonczyc..." << endl;
+    cin.ignore();
+    cin.get();
+     return EXIT_SUCCESS;
+}
