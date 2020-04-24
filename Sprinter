@@ -1,0 +1,52 @@
+//////////////////////
+// program dla sprintera
+//////////////////////////////////////////////////
+
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+int main()
+{
+     float sumaryczny , najlepszy, najgorszy , czas ;
+     int licznik;
+
+     cout << "\nWprowadz czasy,dzieki ktorym wyznacze nalepszy,najgorszy oraz sredni czas";
+     cout << "\nPodaj '0' czas jesli chcesz zakonczyc wprowadzenie.";
+     cout << "\nNie wpisuj nam ujemnego czasu.\n>" << flush;
+
+     cin >> czas;
+
+    if( czas == 0 )
+         cout << "serio";
+     else
+     {
+     sumaryczny = najgorszy = najlepszy = czas;
+     licznik = 1;
+
+     cout << ">" << flush;
+     cin >> czas;
+
+     while( czas != 0 )
+     {
+     sumaryczny += czas;
+     if( czas > najgorszy )
+     najgorszy = czas;
+     if( czas < najlepszy )
+     najlepszy = czas;
+     licznik++;
+
+     cout << ">" << flush;
+     cin >> czas;
+     }
+
+     cout << "\nCzas najlepszy: " << najlepszy;
+     cout << "\nCzas najgorszy: " << najgorszy;
+     cout << "\nCzas sredni: " << sumaryczny / licznik;
+     }
+    cout << endl << "Nacisnij Enter by zakonczyc...";
+     cin.ignore();
+     cin.get();
+
+     return EXIT_SUCCESS;
+}
+/////////////////////////////////
