@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+
+struct ele
+{
+  ele * lewy;
+  ele * prawy;
+  int dane;
+  int poziom;
+};
+int maxwys = 0;
+int * poziomlicz;
+
+int n;
+ele * root;
+void czytajEL( )
+{
+  ele ** korzenp;
+  int i, d, l, r;
+
+  cin >> n;
+
+  korzenp = new ele * [ n ];
+
+  for( i = 0; i < n; i++ )
+    korzenp [ i ] = new ele;
+
+  for( i = 0; i < n; i++ )
+  {
+    cin >> d >> l >> r;
+
+    korzenp [ i ] ->poziom = 0;
+    korzenp [ i ] ->dane = d;
+    korzenp [ i ] ->lewy  = l ? korzenp [ l ] : NULL;
+    korzenp [ i ] ->prawy = r ? korzenp [ r ] : NULL;
+  }
+
+  root = korzenp [ 0 ];
+  delete [ ] korzenp;
+  poziomlicz = new int [ n ];
+  for( i = 0; i < n; i++ ) poziomlicz [ i ] = 0;
+}
+void Wysokosc ( ele * korzen )
+{
+  if( korzen )
+  {
+
+    int children = 0;
+
+    if( korzen->lewy )
+    {
+      children++;
+      korzen->lewy->poziom = korzen->poziom + 1;
+    }
+
+    if( korzen->prawy )
+    {
+      children++;
+      korzen->prawy->poziom = korzen->poziom + 1;
+    }
+
+    if( korzen->poziom > maxwys ) maxwys = korzen->poziom;
+    poziomlicz [ korzen->poziom ] ++;
+    Wysokosc ( korzen->lewy );
+    Wysokosc ( korzen->prawy );
+  }
+}
+void wypiszEL( )
+{
+  cout << endl
+       << "Wysokosc       = " << maxwys << endl
+       << endl;
+  for( int i = 0; i <= maxwys; i++ )
+    cout << "Na poziomie " << i << ": wezlow mamy = " << poziomlicz [ i ] << endl;
+  cout << endl
+       << endl;
+}
+int main( )
+{
+  czytajEL( );
+  Wysokosc ( root );
+  wypiszEL( );
+
+  return 0;
+}
