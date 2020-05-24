@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+struct ele
+{
+  ele * lewy;
+  ele * prawy;
+  char dane;
+};
+
+ele J = {NULL, NULL, 'J'};
+ele I = {NULL, NULL, 'I'};
+ele G = {NULL, NULL, 'G'};
+ele H = {NULL, NULL, 'H'};
+ele K = {NULL, NULL, 'K'};
+
+ele D = { &H,  &I, 'D'};
+ele F = { &K, NULL, 'F'};
+ele C = { &F,  &G, 'C'};
+ele E = { &J, NULL, 'E'};
+ele B = { &D,  &E, 'B'};
+
+ele A = { &B,  &C, 'A'};
+
+// Rekurencyjna funkcja preorder
+
+void inorder ( ele * korzen )
+{
+  if( korzen )
+  {
+    inorder ( korzen->lewy );
+    cout << korzen->dane << " ";
+    inorder ( korzen->prawy );
+
+  }
+}
+
+int main( )
+{
+  inorder ( &A );
+  cout << endl;
+  return 0;
+}
+
